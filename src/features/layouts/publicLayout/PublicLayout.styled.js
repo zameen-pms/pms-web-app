@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const StyledPublicLayout = styled.main`
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+`;
+
 export const StyledPublicHeader = styled.header`
 	background-color: var(--primary-dark);
 	padding: 2rem;
@@ -19,6 +26,12 @@ export const StyledPublicHeader = styled.header`
 			display: block;
 		}
 	}
+`;
+
+export const StyledPublicBody = styled.section`
+	flex-grow: 1;
+	overflow-x: hidden;
+	overflow-y: scroll;
 `;
 
 export const StyledPublicLogo = styled.h1`

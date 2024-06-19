@@ -8,14 +8,14 @@ export const StyledButton = styled.button`
 	border-radius: 100px;
 	outline: none;
 	cursor: pointer;
-	border: 2px solid var(--primary-red);
-	background: ${(props) => (props.$outline ? "none" : "var(--primary-red)")};
-	color: ${(props) => (props.$outline ? "var(--primary-red)" : "white")};
+	border: 2px solid var(--primary);
+	background: ${(props) => (props.$outline ? "none" : "var(--primary)")};
+	color: ${(props) => (props.$outline ? "var(--primary)" : "white")};
 	transition: all 0.25s ease-in-out;
 	white-space: nowrap;
 
 	&:hover {
-		background: var(--primary-red);
+		background: var(--primary);
 		color: white;
 	}
 `;

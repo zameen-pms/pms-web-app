@@ -1,5 +1,7 @@
+import HomeHero from "../../features/home/HomeHero";
+
 const HomePage = () => {
-	return <div>Home Page</div>;
+	return <HomeHero />;
 };
 
 export default HomePage;
