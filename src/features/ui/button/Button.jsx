@@ -1,9 +1,19 @@
 import { StyledButton } from "./Button.styled";
 
-const Button = ({ fill, children, ...rest }) => {
+const Button = ({ fill, loading, onClick, children, ...rest }) => {
+	const handleClick = () => {
+		if (!onClick || loading) return;
+		onClick();
+	};
+
 	return (
-		<StyledButton $outline={!fill} {...rest}>
-			{children}
+		<StyledButton
+			onClick={handleClick}
+			$loading={loading || false}
+			$outline={!fill}
+			{...rest}
+		>
+			{loading ? "Loading..." : children}
 		</StyledButton>
 	);
 };
