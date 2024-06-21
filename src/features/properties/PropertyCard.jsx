@@ -3,10 +3,12 @@ import { StyledCardPill, StyledPropertyCard } from "./Properties.styled";
 import getAssetUrl from "../api/assets/getAssetUrl";
 import { MdBathtub, MdBed, MdHouse, MdStraighten } from "react-icons/md";
 import { formatNumber, getAddress } from "../utils/utils";
+import { useNavigate } from "react-router-dom";
 
 const PropertyCard = ({ property }) => {
 	const [imageUrl, setImageUrl] = useState(null);
 	const [color, setColor] = useState("");
+	const navigate = useNavigate();
 
 	const fetchAssetUrl = async () => {
 		try {
@@ -32,7 +34,9 @@ const PropertyCard = ({ property }) => {
 	}, [property]);
 
 	return (
-		<StyledPropertyCard>
+		<StyledPropertyCard
+			onClick={() => navigate(`/properties/${property._id}`)}
+		>
 			<div className="card-image">
 				{imageUrl ? <img src={imageUrl} /> : <MdHouse />}
 				<StyledCardPill $color={color}>
