@@ -26,8 +26,10 @@ const PublicHeader = () => {
 			</StyledPublicLogo>
 			<StyledPublicNav $open={navOpen}>
 				<MdClose onClick={toggleNav} />
-				<p onClick={() => redirect("")}>Properties</p>
-				<Button onClick={() => redirect("")}>Tenant Portal</Button>
+				<p onClick={() => redirect("/properties")}>Properties</p>
+				<Button onClick={() => redirect("/tenants")}>
+					Tenant Portal
+				</Button>
 			</StyledPublicNav>
 			<MdMenu onClick={toggleNav} className="menu-icon" />
 		</StyledPublicHeader>

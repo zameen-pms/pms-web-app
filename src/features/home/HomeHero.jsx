@@ -10,7 +10,7 @@ const HomeHero = () => {
 		<StyledHero>
 			<div className="hero-wrapper">
 				<h1>Professional Property Management</h1>
-				<p>Find your next home with us!</p>
+				<p>Find your next home in Joplin, Missouri</p>
 				<Button onClick={() => navigate("properties")} fill>
 					View Available Properties
 				</Button>
