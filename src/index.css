@@ -87,3 +87,7 @@ body {
 .gap-3 {
 	gap: 3rem;
 }
+
+.nowrap {
+	white-space: nowrap;
+}

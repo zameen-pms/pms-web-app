@@ -43,7 +43,7 @@ const PropertyCard = ({ property }) => {
 				<div className="column gap-1">
 					<div className="card-body-header">
 						<p className="light">{getAddress(property.address)}</p>
-						<p className="bold">
+						<p className="bold nowrap">
 							Rent: ${formatNumber(property.general.rent)}
 						</p>
 					</div>
