@@ -64,7 +64,7 @@ export const StyledPropertyCard = styled.div`
 			font-size: 22px;
 			display: flex;
 			flex-direction: row;
-			align-items: center;
+			align-items: flex-start;
 			justify-content: space-between;
 
 			@media (max-width: 1200px) {
