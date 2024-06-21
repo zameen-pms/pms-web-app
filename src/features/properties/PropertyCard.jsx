@@ -41,7 +41,7 @@ const PropertyCard = ({ property }) => {
 			</div>
 			<div className="card-body">
 				<div className="column gap-1">
-					<div className="row align-center justify-sb">
+					<div className="card-body-header">
 						<p className="light">{getAddress(property.address)}</p>
 						<p className="bold">
 							Rent: ${formatNumber(property.general.rent)}

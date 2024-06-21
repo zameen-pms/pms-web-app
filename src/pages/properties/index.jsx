@@ -2,7 +2,7 @@ import PropertiesCard from "../../features/properties/PropertiesCard";
 
 const PropertiesHome = () => {
 	return (
-		<div className="p-2">
+		<div className="padding">
 			<PropertiesCard />
 		</div>
 	);

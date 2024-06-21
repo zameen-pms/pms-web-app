@@ -44,6 +44,16 @@ body {
 	padding: 2rem;
 }
 
+.padding {
+	padding: 2rem;
+}
+
+@media (max-width: 1080px) {
+	.padding {
+		padding: 1rem;
+	}
+}
+
 .row {
 	display: flex;
 	flex-direction: row;

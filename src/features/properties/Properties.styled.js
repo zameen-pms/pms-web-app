@@ -7,6 +7,10 @@ export const StyledPropertiesCard = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+
+	@media (max-width: 650px) {
+		padding: 1rem;
+	}
 `;
 
 export const StyledPropertyCard = styled.div`
@@ -15,6 +19,7 @@ export const StyledPropertyCard = styled.div`
 	width: 100%;
 	border-radius: 1rem;
 	display: flex;
+	flex-direction: row;
 	align-items: stretch;
 	gap: 2rem;
 	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -55,8 +60,20 @@ export const StyledPropertyCard = styled.div`
 		flex-direction: column;
 		justify-content: space-between;
 
-		p {
+		.card-body-header {
 			font-size: 22px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+
+			@media (max-width: 1200px) {
+				font-size: 18px;
+			}
+
+			@media (max-width: 650px) {
+				font-size: 1rem;
+			}
 		}
 	}
 
@@ -78,6 +95,22 @@ export const StyledPropertyCard = styled.div`
 		p {
 			font-size: 14px;
 		}
+	}
+
+	@media (max-width: 1000px) {
+		flex-direction: column;
+
+		.card-image {
+			width: 100%;
+		}
+
+		.card-body {
+			gap: 2rem;
+		}
+	}
+
+	@media (max-width: 650px) {
+		padding: 0.5rem;
 	}
 `;
 
