@@ -1,29 +1,15 @@
 import { useEffect, useState } from "react";
 import { StyledCardPill, StyledPropertyCard } from "./Properties.styled";
-import getAssetUrl from "../api/assets/getAssetUrl";
 import { MdBathtub, MdBed, MdHouse, MdStraighten } from "react-icons/md";
 import { formatNumber, getAddress } from "../utils/utils";
 import { useNavigate } from "react-router-dom";
+import { URL } from "../../constants";
 
 const PropertyCard = ({ property }) => {
-	const [imageUrl, setImageUrl] = useState(null);
 	const [color, setColor] = useState("");
 	const navigate = useNavigate();
 
-	const fetchAssetUrl = async () => {
-		try {
-			const [key] = property.images;
-			const { data } = await getAssetUrl(key);
-			setImageUrl(data);
-		} catch (err) {
-			console.log(err.message);
-		}
-	};
-
 	useEffect(() => {
-		if (property?.images?.length > 0) {
-			fetchAssetUrl();
-		}
 		if (property.availability === "Available") {
 			setColor("#27ae60");
 		} else if (property.availability === "Occupied") {
@@ -38,7 +24,11 @@ const PropertyCard = ({ property }) => {
 			onClick={() => navigate(`/properties/${property._id}`)}
 		>
 			<div className="card-image">
-				{imageUrl ? <img src={imageUrl} /> : <MdHouse />}
+				{property?.images?.length > 0 ? (
+					<img src={`${URL}/assets/url/${property.images[0]}`} />
+				) : (
+					<MdHouse />
+				)}
 				<StyledCardPill $color={color}>
 					{property.availability}
 				</StyledCardPill>

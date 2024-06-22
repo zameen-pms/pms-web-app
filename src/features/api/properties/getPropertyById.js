@@ -1,8 +1,8 @@
 import axios from "../axios";
 
-const getAssetUrl = async (key) => {
+const getPropertyById = async (id) => {
 	try {
-		const response = await axios.get(`/assets/url/${key}`);
+		const response = await axios.get(`/properties/${id}`);
 		return response;
 	} catch (err) {
 		console.log(err);
@@ -10,4 +10,4 @@ const getAssetUrl = async (key) => {
 	}
 };
 
-export default getAssetUrl;
+export default getPropertyById;

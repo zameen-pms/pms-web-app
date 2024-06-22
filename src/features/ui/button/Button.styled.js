@@ -5,7 +5,7 @@ export const StyledButton = styled.button`
 	font-weight: 550;
 	font-size: 1rem;
 	letter-spacing: 0.3px;
-	border-radius: 100px;
+	border-radius: 8px;
 	outline: none;
 	cursor: ${(props) => (props.$loading ? "not-allowed" : "pointer")};
 	border: 2px solid var(--primary);

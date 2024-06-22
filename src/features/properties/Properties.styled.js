@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledPropertiesCard = styled.div`
-	background: #f3f4f5;
+	background: var(--gray);
 	border-radius: 16px;
 	padding: 2rem;
 	display: flex;
@@ -125,4 +125,93 @@ export const StyledCardPill = styled.div`
 	position: absolute;
 	top: 1rem;
 	left: 1rem;
+`;
+
+export const StyledPropertyGallery = styled.div`
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	gap: 0.5rem;
+
+	img {
+		width: 100%;
+		height: 100%;
+		border-radius: 8px;
+		object-fit: cover;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+
+		&:hover {
+			box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+				rgba(0, 0, 0, 0.12) 0px -12px 30px,
+				rgba(0, 0, 0, 0.12) 0px 4px 6px,
+				rgba(0, 0, 0, 0.17) 0px 12px 13px,
+				rgba(0, 0, 0, 0.09) 0px -3px 5px;
+		}
+	}
+
+	.gallery-main {
+		flex: 1;
+	}
+
+	.gallery-carousel {
+		flex: 1;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 0.5rem;
+
+		.gallery-more {
+			background-color: var(--primary-shade);
+			height: 100%;
+			border-radius: 8px;
+			color: var(--primary);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 30px;
+			font-weight: 500;
+			cursor: pointer;
+			transition: all 0.2s ease-in-out;
+
+			&:hover {
+				box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+					rgba(0, 0, 0, 0.12) 0px -12px 30px,
+					rgba(0, 0, 0, 0.12) 0px 4px 6px,
+					rgba(0, 0, 0, 0.17) 0px 12px 13px,
+					rgba(0, 0, 0, 0.09) 0px -3px 5px;
+			}
+		}
+	}
+`;
+
+export const StyledPropertyModal = styled.div`
+	background-color: white;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 1rem;
+	border-radius: 8px;
+
+	svg {
+		width: 40px;
+		height: 40px;
+		cursor: pointer;
+		background-color: black;
+		border-radius: 20px;
+		color: white;
+		padding: 0.5rem;
+	}
+
+	img {
+		height: 75vh;
+		width: auto;
+		border-radius: 8px;
+	}
+
+	p {
+		color: black;
+		font-weight: 500;
+		font-size: 20px;
+	}
 `;
