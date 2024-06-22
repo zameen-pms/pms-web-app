@@ -3,7 +3,7 @@ import Button from "../../features/ui/button/Button";
 const ApplicationsPay = () => {
 	const handleVenmo = () => {
 		window.open(
-			"https://venmo.com/?txn=pay&audience=public&recipients=@Faiqa-Kamran&amount=40.00&note=Rental%20Application%20Feej",
+			"https://venmo.com/?txn=pay&audience=public&recipients=@Faiqa-Kamran&amount=40.00&note=Rental%20Application%20Fee",
 			"_blank"
 		);
 	};
