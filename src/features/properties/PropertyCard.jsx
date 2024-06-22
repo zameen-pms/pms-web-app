@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { StyledCardPill, StyledPropertyCard } from "./Properties.styled";
-import { MdBathtub, MdBed, MdHouse, MdStraighten } from "react-icons/md";
-import { formatNumber, getAddress } from "../utils/utils";
+import { StyledPill, StyledPropertyCard } from "./Properties.styled";
 import { useNavigate } from "react-router-dom";
-import { URL } from "../../constants";
+import { formatNumber, getAddress, getImageUrl } from "../utils/utils";
+import { MdBed, MdLocationOn, MdBathtub, MdOpenInFull } from "react-icons/md";
 
 const PropertyCard = ({ property }) => {
 	const [color, setColor] = useState("");
@@ -19,40 +18,31 @@ const PropertyCard = ({ property }) => {
 		}
 	}, [property]);
 
+	const handleClick = () => navigate(`/properties/${property._id}`);
+
 	return (
-		<StyledPropertyCard
-			onClick={() => navigate(`/properties/${property._id}`)}
-		>
-			<div className="card-image">
-				{property?.images?.length > 0 ? (
-					<img src={`${URL}/assets/url/${property.images[0]}`} />
-				) : (
-					<MdHouse />
-				)}
-				<StyledCardPill $color={color}>
-					{property.availability}
-				</StyledCardPill>
-			</div>
+		<StyledPropertyCard onClick={handleClick}>
+			<img src={getImageUrl(property.images[0])} alt="Property" />
+			<StyledPill $color={color}>{property.availability}</StyledPill>
 			<div className="card-body">
-				<div className="column gap-1">
-					<div className="card-body-header">
-						<p className="light">{getAddress(property.address)}</p>
-						<p className="bold nowrap">
-							Rent: ${formatNumber(property.general.rent)}
-						</p>
+				<div className="row align-center justify-sb">
+					<div className="card-address">
+						<MdLocationOn />
+						<p>{getAddress(property.address)}</p>
 					</div>
+					<h3>${formatNumber(property.general.rent)}</h3>
 				</div>
-				<div className="row align-center gap-05">
-					<div className="card-icon">
+				<div className="row align-center justify-sb">
+					<div className="card-spec">
 						<MdBed />
-						<p>{property.general.beds}</p>
+						<p>{property.general.beds} beds</p>
 					</div>
-					<div className="card-icon">
+					<div className="card-spec">
 						<MdBathtub />
-						<p>{property.general.baths}</p>
+						<p>{property.general.baths} baths</p>
 					</div>
-					<div className="card-icon">
-						<MdStraighten />
+					<div className="card-spec">
+						<MdOpenInFull />
 						<p>{formatNumber(property.general.sqft)} ft²</p>
 					</div>
 				</div>

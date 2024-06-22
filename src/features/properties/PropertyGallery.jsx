@@ -4,7 +4,7 @@ import PropertyImagesModal from "./PropertyImagesModal";
 import { useState } from "react";
 
 const PropertyGallery = ({ images }) => {
-	const [showGalleryModal, setShowGalleryModal] = useState(true);
+	const [showGalleryModal, setShowGalleryModal] = useState(false);
 	const [enlargedImages, setEnlargedImages] = useState([images[0]]);
 
 	const handleImageClick = () => {
@@ -49,7 +49,11 @@ const PropertyGallery = ({ images }) => {
 							onClick={handleImageClick}
 							className="gallery-more"
 						>
-							Show All Photos
+							<img
+								src={`${URL}/assets/url/${images[0]}`}
+								alt="Property"
+							/>
+							<div className="blur">View All Images</div>
 						</div>
 					)}
 				</div>
