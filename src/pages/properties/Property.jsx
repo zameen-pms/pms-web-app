@@ -1,8 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
-import PropertyGallery from "../../features/properties/PropertyGallery";
 import { useEffect, useState } from "react";
 import getPropertyById from "../../features/api/properties/getPropertyById";
 import Loader from "../../features/ui/loader/Loader";
+import PropertyInfo from "../../features/properties/PropertyInfo";
 
 const Property = () => {
 	const { propertyId } = useParams();
@@ -23,19 +23,9 @@ const Property = () => {
 		fetchProperty();
 	}, []);
 
-	if (!property) {
-		return (
-			<section className="padding">
-				<Loader />
-			</section>
-		);
-	}
-
 	return (
 		<section className="padding">
-			{property?.images?.length > 0 && (
-				<PropertyGallery images={property.images} />
-			)}
+			{property ? <PropertyInfo property={property} /> : <Loader />}
 		</section>
 	);
 };

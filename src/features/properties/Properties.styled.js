@@ -22,6 +22,7 @@ export const StyledPropertyCard = styled.div`
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	cursor: pointer;
 	transition: all 0.25s ease-in-out;
+	background-color: white;
 
 	&:hover {
 		box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -94,106 +95,55 @@ export const StyledPill = styled.p`
 	border-radius: 4px;
 `;
 
-export const StyledPropertyGallery = styled.div`
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	align-items: stretch;
-	gap: 0.5rem;
+export const StyledPropertyInfo = styled.section`
+	display: grid;
+	grid-template-columns: 3fr 2fr;
+	grid-gap: 2rem;
 
-	img {
-		width: 100%;
-		height: 100%;
-		border-radius: 8px;
-		object-fit: cover;
-		cursor: pointer;
-		transition: all 0.2s ease-in-out;
-
-		&:hover {
-			box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-				rgba(0, 0, 0, 0.12) 0px -12px 30px,
-				rgba(0, 0, 0, 0.12) 0px 4px 6px,
-				rgba(0, 0, 0, 0.17) 0px 12px 13px,
-				rgba(0, 0, 0, 0.09) 0px -3px 5px;
-		}
+	@media (max-width: 1200px) {
+		grid-template-columns: 1fr;
 	}
 
-	.gallery-main {
-		flex: 1;
-	}
-
-	.gallery-carousel {
-		flex: 1;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-gap: 0.5rem;
-
-		.gallery-more {
-			height: 100%;
-			border-radius: 8px;
-			color: var(--primary);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 30px;
-			font-weight: 500;
-			cursor: pointer;
-			transition: all 0.2s ease-in-out;
-
-			&:hover {
-				box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-					rgba(0, 0, 0, 0.12) 0px -12px 30px,
-					rgba(0, 0, 0, 0.12) 0px 4px 6px,
-					rgba(0, 0, 0, 0.17) 0px 12px 13px,
-					rgba(0, 0, 0, 0.09) 0px -3px 5px;
-			}
-
-			div.blur {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: rgba(0, 0, 0, 0.3);
-				backdrop-filter: blur(8px);
-				-webkit-backdrop-filter: blur(8px);
-				border-radius: 8px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				color: white;
-			}
-		}
+	@media (max-width: 1080px) {
+		grid-template-columns: 1fr;
+		grid-gap: 1rem;
 	}
 `;
 
-export const StyledPropertyModal = styled.div`
-	background-color: white;
-	display: flex;
-	align-items: center;
-	gap: 1rem;
+export const PropertyInfoCard = styled.div`
+	background: white;
 	padding: 1rem;
-	border-radius: 8px;
+	border-radius: 16px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	height: min-content;
+`;
 
-	svg {
-		width: 40px;
-		height: 40px;
-		cursor: pointer;
-		background-color: black;
-		border-radius: 20px;
-		color: white;
-		padding: 0.5rem;
-	}
+export const StyledPropertyImageGallery = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 
 	img {
-		height: 75vh;
+		height: 500px;
 		width: auto;
-		border-radius: 8px;
+		object-fit: cover;
+		border-radius: 4px;
 	}
 
-	p {
-		color: black;
-		font-weight: 500;
-		font-size: 20px;
+	svg {
+		background: black;
+		color: white;
+		width: 40px;
+		height: 40px;
+		border-radius: 20px;
+		padding: 0.5rem;
+		cursor: pointer;
+	}
+
+	@media (max-width: 1080px) {
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 `;
