@@ -17,7 +17,6 @@ const PropertiesCard = () => {
 			);
 		} catch (err) {
 			alert("Unable to fetch properties.");
-			console.log(err.message);
 		}
 	};
 

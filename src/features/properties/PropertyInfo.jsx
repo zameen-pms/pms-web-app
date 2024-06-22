@@ -1,9 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../ui/button/Button";
 import { formatNumber, getAddress } from "../utils/utils";
 import { PropertyInfoCard, StyledPropertyInfo } from "./Properties.styled";
 import PropertyImageGallery from "./PropertyImageGallery";
 
 const PropertyInfo = ({ property }) => {
+	const navigate = useNavigate();
+
+	const handleApplicationClick = () => {
+		navigate(`/applications/${property._id}`);
+	};
+
+	const handleCallClick = () => {
+		window.location.href = "tel:+14176692258";
+	};
+
 	return (
 		<StyledPropertyInfo>
 			{property?.images.length > 0 && (
@@ -19,7 +30,12 @@ const PropertyInfo = ({ property }) => {
 							property.general.baths
 						} baths | ${formatNumber(property.general.sqft)} sqft`}
 					</p>
-					<p>Rent: ${formatNumber(property.general.rent)}</p>
+					<div className="row align-center justify-sb">
+						<p>Rent: ${formatNumber(property.general.rent)}</p>
+						<Button onClick={() => navigate("/applications/pay")}>
+							Pay Application Fee
+						</Button>
+					</div>
 					<div className="column gap-1">
 						<h3>Details:</h3>
 						{property.general.description && (
@@ -36,13 +52,16 @@ const PropertyInfo = ({ property }) => {
 							and taking care of the yard (we can refer local lawn
 							care professionals).
 						</p>
-						<p>Deposit: One month rent + Last month's rent</p>
+						<p>
+							Deposit: One month rent + Last month's rent (can be
+							applied to last month's lease)
+						</p>
 						<p>
 							Application fee is $40 per applicant . All adults
 							living in the house need to apply and be approved.
-							Fees can be paid via Venmo, Zelle or cash. Please
-							attach proof of income with application (W-2, tax
-							return, 1099 or any financial document).
+							Fees can be paid via Venmo or Zelle. Please attach
+							proof of income with application (W-2, tax return,
+							1099 or any financial document).
 						</p>
 						<p>
 							Any additional questions can be answers by our
@@ -50,8 +69,13 @@ const PropertyInfo = ({ property }) => {
 						</p>
 					</div>
 					<div className="row align-center gap-1">
-						<Button style={{ width: "100%" }}>Apply Now</Button>
-						<Button>Call Us</Button>
+						<Button
+							onClick={handleApplicationClick}
+							style={{ width: "100%" }}
+						>
+							Apply Now
+						</Button>
+						<Button onClick={handleCallClick}>Call Us</Button>
 					</div>
 				</div>
 			</PropertyInfoCard>

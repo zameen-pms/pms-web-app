@@ -104,3 +104,7 @@ p {
 .nowrap {
 	white-space: nowrap;
 }
+
+.red {
+	color: #e74c3c !important;
+}
