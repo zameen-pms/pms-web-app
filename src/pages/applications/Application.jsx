@@ -49,6 +49,7 @@ const Application = () => {
 			const { data: user } = await createUser(userBody);
 
 			const applicationBody = {
+				property: propertyId,
 				user: user._id,
 				...app,
 				additionalComments: app?.additionalComments || "N/A",
