@@ -8,6 +8,7 @@ import { v4 } from "uuid";
 import createUser from "../../features/api/user/createUser";
 import createApplication from "../../features/api/applications/createApplication";
 import { getAddress } from "../../features/utils/utils";
+import getUsers from "../../features/api/user/getUsers";
 
 const Application = () => {
 	const { propertyId } = useParams();
@@ -33,20 +34,33 @@ const Application = () => {
 		fetchProperty();
 	}, []);
 
+	const checkUserExists = async (email) => {
+		try {
+			const { data } = await getUsers({ email });
+			return data.length === 0 ? false : data[0];
+		} catch (err) {
+			console.log(err.message);
+		}
+	};
+
 	const handleSubmit = async () => {
 		if (app.incomeFiles?.length === 0) {
 			alert("Please upload at least one proof on income.");
 		}
 		try {
-			const userBody = {
-				role: "Tenant",
-				firstName: app.applicant.firstName,
-				lastName: app.applicant.lastName,
-				email: app.applicant.email,
-				password: v4(),
-				status: "Disabled",
-			};
-			const { data: user } = await createUser(userBody);
+			let user = await checkUserExists(app.applicant.email);
+			if (!user) {
+				const userBody = {
+					role: "Tenant",
+					firstName: app.applicant.firstName,
+					lastName: app.applicant.lastName,
+					email: app.applicant.email,
+					password: v4(),
+					status: "Disabled",
+				};
+				const { data } = await createUser(userBody);
+				user = data;
+			}
 
 			const applicationBody = {
 				property: propertyId,

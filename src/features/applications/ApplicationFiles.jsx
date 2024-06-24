@@ -48,7 +48,7 @@ const ApplicationFiles = ({ files, setFiles }) => {
 		<StyledApplicationFiles>
 			<div className="column gap-05">
 				{files.map((asset, index) => (
-					<ApplicationFile>
+					<ApplicationFile key={index}>
 						<p>{canDelete ? `File ${index + 1}` : "Deleting..."}</p>
 						<MdDelete onClick={() => handleDeleteAsset(asset)} />
 					</ApplicationFile>
