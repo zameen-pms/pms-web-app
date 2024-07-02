@@ -56,7 +56,6 @@ const Application = () => {
 					lastName: app.applicant.lastName,
 					email: app.applicant.email,
 					password: v4(),
-					status: "Disabled",
 				};
 				const { data } = await createUser(userBody);
 				user = data;
