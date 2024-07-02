@@ -28,6 +28,11 @@ const ApplicationsPay = () => {
 				per applicant (all adults living in the house must apply and be
 				approved).
 			</p>
+			<p>
+				If you have been approved, you will receive an email from us to
+				create your tenant portal (there is a chance it was sent to your
+				spam folder).
+			</p>
 			<div className="row align-center gap-2">
 				<Button onClick={handleVenmo}>Pay via Venmo</Button>
 				<Button onClick={handleZelle}>Copy Zelle Email</Button>
