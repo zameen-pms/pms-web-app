@@ -31,7 +31,9 @@ const PropertyInfo = ({ property }) => {
 						} baths | ${formatNumber(property.general.sqft)} sqft`}
 					</p>
 					<div className="row align-center justify-sb">
-						<p>Rent: ${formatNumber(property.general.rent)}</p>
+						<p>
+							Rent: ${formatNumber(property.general.rent)}/month
+						</p>
 						<Button onClick={() => navigate("/applications/pay")}>
 							Pay Application Fee
 						</Button>
