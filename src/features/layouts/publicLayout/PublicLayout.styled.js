@@ -31,7 +31,7 @@ export const StyledPublicHeader = styled.header`
 export const StyledPublicBody = styled.section`
 	flex-grow: 1;
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 `;
 
 export const StyledPublicLogo = styled.h1`
