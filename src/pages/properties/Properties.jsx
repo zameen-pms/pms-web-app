@@ -11,7 +11,10 @@ const Properties = () => {
 					name="description"
 					content="View properties available for rent."
 				/>
-				<meta property="og:title" content="Zameen Management" />
+				<meta
+					property="og:title"
+					content="Properties - Zameen Management"
+				/>
 				<meta
 					property="og:description"
 					content="View properties available for rent."

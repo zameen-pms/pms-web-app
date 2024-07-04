@@ -37,7 +37,10 @@ const Property = () => {
 						property.address
 					)}`}
 				/>
-				<meta property="og:title" content="Zameen Management" />
+				<meta
+					property="og:title"
+					content={`${property.address.street} - Zameen Management`}
+				/>
 				<meta
 					property="og:description"
 					content={`Property details for ${getAddress(
