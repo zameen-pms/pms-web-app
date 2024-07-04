@@ -5,6 +5,10 @@ export const StyledPublicLayout = styled.main`
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
+
+	@media (max-width: 760px) {
+		height: auto;
+	}
 `;
 
 export const StyledPublicHeader = styled.header`
@@ -31,7 +35,12 @@ export const StyledPublicHeader = styled.header`
 export const StyledPublicBody = styled.section`
 	flex-grow: 1;
 	overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: scroll;
+
+	@media (max-width: 760px) {
+		flex-grow: 0;
+		overflow-y: visible;
+	}
 `;
 
 export const StyledPublicLogo = styled.h1`

@@ -11,6 +11,10 @@ export const StyledHero = styled.div`
 	background-attachment: fixed;
 	background-size: cover;
 
+	@media (max-width: 760px) {
+		height: 80vh;
+	}
+
 	div.hero-wrapper {
 		width: 100%;
 		height: 100%;
