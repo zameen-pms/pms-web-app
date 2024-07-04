@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/home";
 import PublicLayout from "./features/layouts/publicLayout";
 import PropertiesHome from "./pages/properties";
@@ -16,6 +16,7 @@ const App = () => {
 				<Route path="contact/*" element={<ContactHome />} />
 				<Route path="owners/*" element={<OwnersHome />} />
 				<Route path="properties/*" element={<PropertiesHome />} />
+				<Route path="*" element={<Navigate to="/" />} />
 			</Route>
 
 			{/* private routes */}
