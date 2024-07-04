@@ -22,7 +22,13 @@ const PropertyCard = ({ property }) => {
 
 	return (
 		<StyledPropertyCard onClick={handleClick}>
-			<img src={getImageUrl(property.images[0].key)} alt="Property" />
+			{property.images.length > 0 && property.images[0]?.key ? (
+				<img src={getImageUrl(property.images[0].key)} alt="Property" />
+			) : (
+				<div className="no-images">
+					<div className="blur">Image Not Available</div>
+				</div>
+			)}
 			<StyledPill $color={color}>{property.availability}</StyledPill>
 			<div className="card-body">
 				<div className="row align-center justify-sb">

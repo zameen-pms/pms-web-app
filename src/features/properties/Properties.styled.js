@@ -39,6 +39,28 @@ export const StyledPropertyCard = styled.div`
 		border-top-right-radius: 6px;
 	}
 
+	.no-images {
+		width: 100%;
+		height: 300px;
+		background-image: url("https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+		background-size: cover;
+		background-position: center;
+
+		.blur {
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.75);
+			backdrop-filter: blur(6px);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: white;
+			font-size: 26px;
+			font-weight: 500;
+			letter-spacing: 0.25px;
+		}
+	}
+
 	.card-body {
 		display: flex;
 		flex-direction: column;

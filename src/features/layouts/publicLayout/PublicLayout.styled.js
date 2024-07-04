@@ -94,3 +94,10 @@ export const StyledPublicNav = styled.nav`
 		}
 	}
 `;
+
+export const StyledPublicFooter = styled.footer`
+	width: 100%;
+	background: var(--primary-dark);
+	color: white;
+	padding: 2rem;
+`;
