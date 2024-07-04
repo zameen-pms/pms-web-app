@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import getPropertyById from "../../features/api/properties/getPropertyById";
 import Loader from "../../features/ui/loader/Loader";
 import PropertyInfo from "../../features/properties/PropertyInfo";
+import { Helmet } from "react-helmet-async";
+import { getAddress, getImageUrl } from "../../features/utils/utils";
 
 const Property = () => {
 	const { propertyId } = useParams();
@@ -23,10 +25,40 @@ const Property = () => {
 		fetchProperty();
 	}, []);
 
+	if (!property) return <Loader />;
+
 	return (
-		<section className="padding">
-			{property ? <PropertyInfo property={property} /> : <Loader />}
-		</section>
+		<>
+			<Helmet>
+				<title>{`${property.address.street} - Zameen Management`}</title>
+				<meta
+					name="description"
+					content={`Property details for ${getAddress(
+						property.address
+					)}`}
+				/>
+				<meta property="og:title" content="Zameen Management" />
+				<meta
+					property="og:description"
+					content={`Property details for ${getAddress(
+						property.address
+					)}`}
+				/>
+				{property.images.length > 0 && (
+					<meta
+						property="og:image"
+						content={`${getImageUrl(property.images[0].key)}`}
+					/>
+				)}
+				<meta
+					property="og:url"
+					content={`${URL}/properties/${propertyId}`}
+				/>
+			</Helmet>
+			<section className="padding">
+				<PropertyInfo property={property} />
+			</section>
+		</>
 	);
 };
 
