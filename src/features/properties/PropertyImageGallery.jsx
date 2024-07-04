@@ -15,7 +15,10 @@ const PropertyImageGallery = ({ images }) => {
 
 	return (
 		<StyledPropertyImageGallery>
-			<img src={getImageUrl(images[index])} alt="Property" />
+			<img src={getImageUrl(images[index].key)} alt="Property" />
+			{images[index].description && (
+				<p className="description">{images[index].description}</p>
+			)}
 			<div className="row align-center justify-sb">
 				<MdArrowBack onClick={() => changeIndex(-1)} />
 				<p>
