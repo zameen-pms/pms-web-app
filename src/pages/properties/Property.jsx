@@ -25,7 +25,13 @@ const Property = () => {
 		fetchProperty();
 	}, []);
 
-	if (!property) return <Loader />;
+	if (!property) {
+		return (
+			<section className="padding">
+				<Loader />
+			</section>
+		);
+	}
 
 	return (
 		<>
