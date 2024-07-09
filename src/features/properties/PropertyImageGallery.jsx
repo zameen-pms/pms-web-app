@@ -1,10 +1,11 @@
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 import { StyledPropertyImageGallery } from "./Properties.styled";
 import { useState } from "react";
-import { getImageUrl } from "../utils/utils";
+import useGetImageUrl from "../hooks/useGetImageUrl";
 
 const PropertyImageGallery = ({ images }) => {
 	const [index, setIndex] = useState(0);
+	const imageUrl = useGetImageUrl(images[index]?.key, [images, index]);
 
 	const changeIndex = (increment) => {
 		let newIndex = index + increment;
@@ -15,7 +16,7 @@ const PropertyImageGallery = ({ images }) => {
 
 	return (
 		<StyledPropertyImageGallery>
-			<img src={getImageUrl(images[index].key)} alt="Property" />
+			{imageUrl && <img src={imageUrl} alt="Property" />}
 			{images[index].description && (
 				<p className="description">{images[index].description}</p>
 			)}
