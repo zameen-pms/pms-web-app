@@ -1,10 +1,10 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 export const StyledButton = styled.button`
-	padding: 0.5rem 1.5rem;
-	font-weight: 550;
+	padding: 0.75rem 1.5rem;
+	font-weight: 500;
 	font-size: 1rem;
-	letter-spacing: 0.3px;
+	letter-spacing: -0.1px;
 	border-radius: 8px;
 	outline: none;
 	cursor: ${(props) => (props.$loading ? "not-allowed" : "pointer")};
