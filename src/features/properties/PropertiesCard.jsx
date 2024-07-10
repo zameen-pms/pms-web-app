@@ -11,9 +11,7 @@ const PropertiesCard = () => {
 		try {
 			const { data } = await getProperties();
 			setProperties(
-				data.filter(
-					(property) => property.availability !== "Unavailable"
-				)
+				data.filter((property) => property.availability === "Available")
 			);
 		} catch (err) {
 			alert("Unable to fetch properties.");
