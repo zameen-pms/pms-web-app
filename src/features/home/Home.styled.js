@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledHero = styled.div`
 	width: 100%;
-	height: 100%;
+	height: calc(100vh - 100px);
 	background: whitesmoke;
 	align-items: center;
 	justify-content: center;
@@ -10,10 +10,6 @@ export const StyledHero = styled.div`
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
-
-	@media (max-width: 760px) {
-		height: 80vh;
-	}
 
 	div.hero-wrapper {
 		width: 100%;

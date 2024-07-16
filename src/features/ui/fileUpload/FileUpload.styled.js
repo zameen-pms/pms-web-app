@@ -28,6 +28,7 @@ export const StyledFileUpload = styled.div`
 			color: white;
 			font-size: 14px;
 			font-weight: 400;
+			white-space: nowrap;
 		}
 
 		svg {

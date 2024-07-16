@@ -60,7 +60,7 @@ const Documents = () => {
 
 	return (
 		<ApplicationSection>
-			<div className="row justify-sb align-center">
+			<div className="row justify-sb align-center gap-05">
 				<div className="column">
 					<h2>Supporting Documents</h2>
 					<p className="gray">

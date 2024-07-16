@@ -1,19 +1,10 @@
 import styled from "styled-components";
 
-export const StyledPublicLayout = styled.main`
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-
-	@media (max-width: 760px) {
-		height: auto;
-	}
-`;
-
 export const StyledPublicHeader = styled.header`
+	width: 100%;
+	height: 100px;
+	padding: 0 2rem;
 	background-color: var(--primary-dark);
-	padding: 2rem;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -33,14 +24,7 @@ export const StyledPublicHeader = styled.header`
 `;
 
 export const StyledPublicBody = styled.section`
-	flex-grow: 1;
-	overflow-x: hidden;
-	overflow-y: scroll;
-
-	@media (max-width: 760px) {
-		flex-grow: 0;
-		overflow-y: visible;
-	}
+	min-height: calc(100vh - 100px);
 `;
 
 export const StyledPublicLogo = styled.h1`
