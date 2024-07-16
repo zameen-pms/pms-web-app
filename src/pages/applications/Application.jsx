@@ -3,80 +3,81 @@ import { useNavigate, useParams } from "react-router-dom";
 import getPropertyById from "../../features/api/properties/getPropertyById";
 import Loader from "../../features/ui/loader/Loader";
 import ApplicationForm from "../../features/applications/ApplicationForm";
-import { appObject } from "../../features/applications/ApplicationConstants";
-import { v4 } from "uuid";
-import createUser from "../../features/api/user/createUser";
-import createApplication from "../../features/api/applications/createApplication";
 import { getAddress } from "../../features/utils/utils";
+import { useDispatch, useSelector } from "react-redux";
+import {
+	getApplication,
+	setApplication,
+	setCanEdit,
+	setIsLoading,
+} from "../../features/store/applicationSlice";
+import createApplication from "../../features/api/applications/createApplication";
+import createUser from "../../features/api/user/createUser";
+import { v4 } from "uuid";
 import getUsers from "../../features/api/user/getUsers";
+import { APPLICATION_MODEL } from "../../constants";
 
 const Application = () => {
 	const { propertyId } = useParams();
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const application = useSelector(getApplication);
 	const [property, setProperty] = useState(null);
-	const [app, setApp] = useState(appObject);
-	const [loading, setLoading] = useState(false);
 
 	const fetchProperty = async () => {
 		try {
-			setLoading(true);
 			const { data } = await getPropertyById(propertyId);
 			setProperty(data);
 		} catch (err) {
 			alert("Unable to fetch property. Redirecting...");
 			navigate("/");
-		} finally {
-			setLoading(false);
 		}
 	};
 
 	useEffect(() => {
 		fetchProperty();
+		dispatch(setApplication(APPLICATION_MODEL));
+		dispatch(setCanEdit(true));
 	}, []);
 
-	const checkUserExists = async (email) => {
-		try {
-			const { data } = await getUsers({ email });
-			return data.length === 0 ? false : data[0];
-		} catch (err) {
-			console.log(err.message);
-		}
-	};
-
 	const handleSubmit = async () => {
-		if (app.incomeFiles?.length === 0) {
-			alert("Please upload at least one proof on income.");
-		}
+		if (!confirm("Are you sure you're ready to submit?")) return;
 		try {
-			let user = await checkUserExists(app.applicant.email);
-			if (!user) {
-				const userBody = {
-					role: "Tenant",
-					firstName: app.applicant.firstName,
-					lastName: app.applicant.lastName,
-					email: app.applicant.email,
+			dispatch(setIsLoading(true));
+
+			const { personal } = application;
+			const { email, firstName, lastName } = personal;
+
+			const { data: users } = await getUsers({ email });
+			let user;
+			if (users.length === 0) {
+				const { data } = createUser({
+					email,
 					password: v4(),
+					role: "Tenant",
+					firstName,
+					lastName,
 					status: "Disabled",
-				};
-				const { data } = await createUser(userBody);
+				});
 				user = data;
+			} else {
+				user = users[0];
 			}
 
-			const applicationBody = {
+			await createApplication({
+				...application,
 				property: propertyId,
 				user: user._id,
-				...app,
-				additionalComments: app?.additionalComments || "N/A",
-				questions: app?.questions || "N/A",
-			};
-			await createApplication(applicationBody);
+			});
 
 			alert(
-				"Your application has been submitted! You will be redirected to the payment page."
+				"Your application has been submitted! A link to view your application has been sent to your email."
 			);
 			navigate("/applications/pay");
 		} catch (err) {
-			alert("An error occured when trying to submit you application.");
+			console.log(err.message);
+		} finally {
+			dispatch(setIsLoading(false));
 		}
 	};
 
@@ -85,13 +86,7 @@ const Application = () => {
 	return (
 		<section className="padding column gap-2">
 			<h2>{getAddress(property.address)}: Rental Application</h2>
-			<ApplicationForm
-				app={app}
-				setApp={setApp}
-				canEdit={true}
-				handleSubmit={handleSubmit}
-				loading={loading}
-			/>
+			<ApplicationForm onSubmit={handleSubmit} />
 		</section>
 	);
 };

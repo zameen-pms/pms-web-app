@@ -1,41 +1,70 @@
 import styled from "styled-components";
 
-export const StyledApplicationFiles = styled.div`
+export const StyledApplicationForm = styled.form`
+	border-radius: 10px;
+	padding: 1rem;
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+`;
+
+export const ApplicationSection = styled.section`
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	margin-bottom: 2rem;
+
+	h2 {
+		font-size: 20px;
+		font-weight: 400;
+	}
 `;
 
-export const ApplicationFile = styled.div`
+export const ApplicationDelete = styled.button`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	gap: 1rem;
-	border: 1px solid var(--primary);
-	padding: 0.5rem 1rem;
-	border-radius: 6px;
-	width: min-content;
+	gap: 0.5rem;
+	border: none;
+	color: white;
+	background-color: #e74c3c;
+	border-radius: 5px;
+	padding: 4px 8px;
+	cursor: pointer;
+	transition: all 0.25s ease-in-out;
 
-	p {
-		font-size: 14px;
-		color: var(--primary);
-		font-weight: 500;
-		margin-bottom: 0 !important;
-		white-space: nowrap;
+	&:hover {
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	}
+`;
+
+export const StyledFormGrid = styled.div`
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	gap: 1rem;
+`;
+
+export const StyledDocument = styled.div`
+	background: #e8e8e8;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 2rem;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+	img {
+		width: 300px;
+		height: auto;
 	}
 
 	svg {
-		color: black;
 		width: 30px;
 		height: 30px;
 		cursor: pointer;
-		transition: all 0.25s ease-in-out;
 
 		&:hover {
 			color: #e74c3c;
 		}
 	}
 `;
-
-export const ApplicationFilesButton = styled.div``;
