@@ -3,12 +3,11 @@ import { StyledPill, StyledPropertyCard } from "./Properties.styled";
 import { useNavigate } from "react-router-dom";
 import { formatNumber, getAddress } from "../utils/utils";
 import { MdBed, MdLocationOn, MdBathtub, MdOpenInFull } from "react-icons/md";
-import useGetImageUrl from "../hooks/useGetImageUrl";
+import { getImageUrl } from "../utils/getImageUrl";
 
 const PropertyCard = ({ property }) => {
 	const [color, setColor] = useState("");
 	const navigate = useNavigate();
-	const imageUrl = useGetImageUrl(property?.images[0]?.key, [property]);
 
 	useEffect(() => {
 		if (property.availability === "Available") {
@@ -25,7 +24,7 @@ const PropertyCard = ({ property }) => {
 	return (
 		<StyledPropertyCard onClick={handleClick}>
 			{property?.images[0]?.key ? (
-				<img src={imageUrl} alt="Property" />
+				<img src={getImageUrl(property.images[0].key)} alt="Property" />
 			) : (
 				<div className="no-images">
 					<div className="blur">Image Not Available</div>

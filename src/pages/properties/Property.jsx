@@ -5,12 +5,11 @@ import Loader from "../../features/ui/loader/Loader";
 import PropertyInfo from "../../features/properties/PropertyInfo";
 import { Helmet } from "react-helmet-async";
 import { getAddress } from "../../features/utils/utils";
-import useGetImageUrl from "../../features/hooks/useGetImageUrl";
+import { getImageUrl } from "../../features/utils/getImageUrl";
 
 const Property = () => {
 	const { propertyId } = useParams();
 	const [property, setProperty] = useState(null);
-	const imageUrl = useGetImageUrl(property?.images[0]?.key);
 	const navigate = useNavigate();
 
 	const fetchProperty = async () => {
@@ -56,7 +55,10 @@ const Property = () => {
 					)}`}
 				/>
 				{property.images.length > 0 && (
-					<meta property="og:image" content={imageUrl} />
+					<meta
+						property="og:image"
+						content={getImageUrl(property.images[0].key)}
+					/>
 				)}
 				<meta
 					property="og:url"
