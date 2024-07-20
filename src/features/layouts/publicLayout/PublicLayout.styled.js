@@ -24,7 +24,7 @@ export const StyledPublicHeader = styled.header`
 `;
 
 export const StyledPublicBody = styled.section`
-	min-height: calc(100vh - 100px);
+	min-height: 100vh;
 `;
 
 export const StyledPublicLogo = styled.h1`

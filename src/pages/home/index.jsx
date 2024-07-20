@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import HomeHero from "../../features/home/HomeHero";
 import { URL } from "../../constants";
+import HomeServices from "../../features/home/HomeServices";
 
 const HomePage = () => {
 	return (
@@ -19,6 +20,7 @@ const HomePage = () => {
 				<meta property="og:url" content={`${URL}`} />
 			</Helmet>
 			<HomeHero />
+			<HomeServices />
 		</>
 	);
 };

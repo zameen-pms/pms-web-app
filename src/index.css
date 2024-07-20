@@ -11,7 +11,7 @@
 }
 
 :root {
-	--primary: #5352ed;
+	--primary: #6b63ff;
 	--primary-shade: #fae5d3;
 	--primary-dark: #131515;
 	--text-gray: #7c8184;
@@ -48,6 +48,14 @@ p {
 
 .bold {
 	font-weight: 500;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.text-primary {
+	color: var(--primary);
 }
 
 .p-05 {
