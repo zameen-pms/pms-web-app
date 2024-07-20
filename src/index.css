@@ -70,6 +70,10 @@ p {
 	padding: 2rem;
 }
 
+.p-3 {
+	padding: 3rem;
+}
+
 .padding {
 	padding: 2rem;
 }
@@ -124,4 +128,10 @@ p {
 
 .gray {
 	color: var(--text-gray);
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	gap: 1rem;
 }

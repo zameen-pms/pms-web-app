@@ -174,3 +174,63 @@ export const ServiceCard = styled.div`
 		}
 	}
 `;
+
+export const StyledHomeForm = styled.div`
+	background: linear-gradient(
+		90deg,
+		rgba(255, 84, 73, 1) 0%,
+		rgba(108, 99, 255, 1) 100%
+	);
+	padding: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+
+	h2 {
+		font-size: 35px;
+		text-align: center;
+		color: white;
+	}
+
+	p {
+		font-size: 18px;
+		text-align: center;
+		color: white;
+	}
+
+	@media (max-width: 1080px) {
+		padding: 2rem 1rem;
+	}
+
+	@media (max-width: 800px) {
+		h2 {
+			font-size: 30px;
+		}
+	}
+`;
+
+export const ConsulationForm = styled.form`
+	background: rgba(255, 255, 255);
+	padding: 1.5rem;
+	width: 1080px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	.message {
+		background: var(--primary);
+		padding: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		color: white;
+		border-radius: 5px;
+	}
+
+	@media (max-width: 1100px) {
+		width: 100%;
+	}
+`;
