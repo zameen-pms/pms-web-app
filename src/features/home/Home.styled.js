@@ -18,7 +18,7 @@ export const StyledHero = styled.main`
 		color: white;
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
+		gap: 2rem;
 		text-align: center;
 
 		h1 {
@@ -27,8 +27,9 @@ export const StyledHero = styled.main`
 		}
 
 		p {
-			color: #c8d6e5;
+			color: white;
 			font-size: 22px;
+			line-height: 2rem;
 		}
 	}
 
@@ -58,14 +59,12 @@ export const StyledHero = styled.main`
 			h1 {
 				font-size: 35px;
 			}
-
-			p {
-				font-size: 18px;
-			}
 		}
 	}
 
 	@media (max-width: 600px) {
+		height: 90vh;
+
 		.content {
 			width: 100%;
 			padding: 1rem;

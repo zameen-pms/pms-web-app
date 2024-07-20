@@ -2,15 +2,14 @@ import React from "react";
 import { StyledHero } from "./Home.styled";
 import Button from "../ui/button/Button";
 
-const HomeHero = () => {
+const HomeHero = ({ onClick }) => {
 	return (
 		<StyledHero>
 			<img className="handshake-img" src="/images/handshake.svg" />
 			<img className="property-img" src="/images/property.svg" />
 			<div className="content">
 				<h1>
-					<span className="underline">End-to-End</span> Property
-					Management,
+					End-to-End Property Management,
 					<br />
 					Stress-Free Ownership.
 				</h1>
@@ -22,7 +21,7 @@ const HomeHero = () => {
 					ownership and{" "}
 					<span className="bold underline">optimized earnings</span>.
 				</p>
-				<Button fill style={{ margin: "0 auto" }}>
+				<Button onClick={onClick} fill style={{ margin: "0 auto" }}>
 					Free Consultation
 				</Button>
 			</div>
