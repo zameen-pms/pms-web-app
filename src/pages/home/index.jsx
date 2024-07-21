@@ -1,17 +1,8 @@
 import { Helmet } from "react-helmet-async";
-import HomeHero from "../../features/home/HomeHero";
 import { URL } from "../../constants";
-import HomeServices from "../../features/home/HomeServices";
-import { useRef } from "react";
-import HomeForm from "../../features/home/HomeForm";
+import { Navigate } from "react-router-dom";
 
 const HomePage = () => {
-	const formRef = useRef();
-
-	const handleClick = () => {
-		formRef.current.scrollIntoView({ behavior: "smooth" });
-	};
-
 	return (
 		<>
 			<Helmet>
@@ -27,9 +18,8 @@ const HomePage = () => {
 				/>
 				<meta property="og:url" content={`${URL}`} />
 			</Helmet>
-			<HomeHero onClick={handleClick} />
-			<HomeServices />
-			<HomeForm ref={formRef} />
+
+			<Navigate to="/services" />
 		</>
 	);
 };

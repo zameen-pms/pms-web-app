@@ -4,7 +4,10 @@ import Input from "../ui/input/Input";
 import Button from "../ui/button/Button";
 import Dropdown from "../ui/dropdown/Dropdown";
 import Textbox from "../ui/textbox/Textbox";
-import createConsultation from "../api/consultations/createConsultation";
+import { render } from "@react-email/components";
+import ConsultationEmail from "../../../emails/ConsultationEmail";
+import getUsers from "../api/user/getUsers";
+import sendEmail from "../api/email/sendEmail";
 
 const HomeForm = forwardRef((props, ref) => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -25,9 +28,25 @@ const HomeForm = forwardRef((props, ref) => {
 		if (!consultation.propertyCount) {
 			return alert("Please provide property count information.");
 		}
+
 		try {
-			await createConsultation(consultation);
 			setCanSend(false);
+
+			const { data: users } = await getUsers({ role: "Manager" });
+
+			const recipients = users.map((user) => user?.email);
+
+			const body = render(
+				<ConsultationEmail consultation={consultation} />
+			);
+
+			await sendEmail({
+				subject: `${
+					consultation?.name || "Someone"
+				} has requested a consultation`,
+				body,
+				recipients,
+			});
 		} catch (err) {
 			alert("Unable to submit the form at this time.");
 		} finally {
