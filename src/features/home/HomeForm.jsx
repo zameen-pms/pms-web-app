@@ -56,11 +56,13 @@ const HomeForm = forwardRef((props, ref) => {
 
 	return (
 		<StyledHomeForm ref={ref}>
-			<h2>Schedule Your Free Consultation</h2>
-			<p>
-				Tell us a bit about yourself and your preferred schedule, and
-				we'll set up a consultation to discuss how we can help.
-			</p>
+			<div className="center-text">
+				<h2>Schedule Your Free Consultation</h2>
+				<p>
+					Tell us a bit about yourself and your preferred schedule,
+					and we'll set up a consultation to discuss how we can help.
+				</p>
+			</div>
 			<ConsulationForm onSubmit={handleSubmit}>
 				<div className="grid">
 					<Input

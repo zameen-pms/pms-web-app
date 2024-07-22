@@ -63,7 +63,7 @@ export const StyledHero = styled.main`
 	}
 
 	@media (max-width: 600px) {
-		height: 90vh;
+		height: 100vh;
 
 		.content {
 			width: 100%;
@@ -78,15 +78,13 @@ export const StyledHero = styled.main`
 `;
 
 export const HomeSection = styled.section`
-	background-color: #ecf0f1;
+	background-color: var(--off-white);
 	width: 100%;
-	padding: 50px;
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
+	padding: 100px 50px;
 
 	h2 {
 		font-size: 35px;
+		font-weight: 400;
 	}
 
 	p {
@@ -94,17 +92,15 @@ export const HomeSection = styled.section`
 	}
 
 	.center-text {
-		width: 800px;
+		width: 1080px;
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
-		text-align: center;
+		gap: 0.5rem;
 	}
 
 	.home-grid {
-		margin: 0 auto;
-		margin-top: 1rem;
+		margin: 3rem auto 0 auto;
 		width: 1080px;
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr;
@@ -112,8 +108,12 @@ export const HomeSection = styled.section`
 	}
 
 	@media (max-width: 1300px) {
-		padding: 1rem;
+		padding: 2rem;
 		margin-top: 0;
+
+		.center-text {
+			width: 100%;
+		}
 
 		.home-grid {
 			width: 100%;
@@ -130,37 +130,35 @@ export const HomeSection = styled.section`
 		h2 {
 			font-size: 30px;
 		}
-
-		.center-text {
-			width: 100%;
-			padding: 1rem;
-		}
 	}
 `;
 
 export const ServiceCard = styled.div`
-	border: 1px solid var(--primary);
+	border: 1px solid lightgray;
 	padding: 15px;
 	border-radius: 10px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 1rem;
-	text-align: center;
+	background: white;
 
 	svg {
-		width: 100px;
-		height: 100px;
+		width: 35px;
+		height: 35px;
+		padding: 5px;
+		background: #f2f2f4;
+		border-radius: 5px;
 		color: var(--primary);
 	}
 
 	h4 {
-		font-size: 18px;
-		color: var(--primary);
+		font-size: 24px;
+		font-weight: 400;
+		margin-top: 3rem;
 	}
 
 	p {
-		font-size: 1rem;
+		font-size: 14px;
+		line-height: 21px;
+		color: var(--gray);
+		margin-top: 1rem;
 	}
 
 	@media (max-width: 800px) {
@@ -169,39 +167,46 @@ export const ServiceCard = styled.div`
 			height: 50px;
 		}
 
-		p {
-			font-size: 14px;
+		h4 {
+			margin-top: 1rem;
 		}
 	}
 `;
 
 export const StyledHomeForm = styled.div`
-	background: linear-gradient(
-		90deg,
-		rgba(255, 84, 73, 1) 0%,
-		rgba(108, 99, 255, 1) 100%
-	);
-	padding: 50px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 1rem;
+	background: white;
+	padding: 100px 50px;
 
 	h2 {
 		font-size: 35px;
-		text-align: center;
-		color: white;
+		font-weight: 400;
 	}
 
 	p {
 		font-size: 18px;
-		text-align: center;
-		color: white;
+	}
+
+	.center-text {
+		width: 1080px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	@media (max-width: 1300px) {
+		padding: 2rem;
+		margin-top: 0;
+
+		.center-text {
+			width: 100%;
+		}
 	}
 
 	@media (max-width: 1080px) {
-		padding: 2rem 1rem;
+		.home-grid {
+			grid-template-columns: 1fr 1fr;
+		}
 	}
 
 	@media (max-width: 800px) {
@@ -212,13 +217,14 @@ export const StyledHomeForm = styled.div`
 `;
 
 export const ConsulationForm = styled.form`
-	background: rgba(255, 255, 255);
+	margin: 3rem auto 0 auto;
 	padding: 1.5rem;
 	width: 1080px;
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 	.message {
 		background: var(--primary);
@@ -230,7 +236,7 @@ export const ConsulationForm = styled.form`
 		border-radius: 5px;
 	}
 
-	@media (max-width: 1100px) {
+	@media (max-width: 1300px) {
 		width: 100%;
 	}
 `;

@@ -15,7 +15,8 @@
 	--primary-shade: #fae5d3;
 	--primary-dark: #131515;
 	--text-gray: #7c8184;
-	--gray: #f4f5f9;
+	--gray: #7c8184;
+	--off-white: #f2f2f4;
 }
 
 #root,
@@ -36,6 +37,8 @@ a {
 p {
 	font-weight: 300;
 	letter-spacing: 0.2px;
+	line-height: 1.6rem;
+	color: var(--text-gray);
 }
 
 .center {

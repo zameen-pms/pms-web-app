@@ -14,9 +14,11 @@ const HomeServices = () => {
 			<div className="center-text">
 				<h2>Full-Service Property Management Solution</h2>
 				<p>
-					Experience seamless property management with our
-					comprehensive range of services, ensuring your property is
-					well-maintained and your tenants are satisfied.
+					Our end-to-end services ensure your property is
+					well-maintained and tenants are satisfied, all while
+					providing you with a{" "}
+					<span className="underline">hands-off</span> approach to
+					investing.
 				</p>
 			</div>
 			<div className="home-grid">
