@@ -127,8 +127,12 @@ export const HomeSection = styled.section`
 	}
 
 	@media (max-width: 800px) {
+		.home-grid {
+			grid-template-columns: 1fr;
+		}
+
 		h2 {
-			font-size: 30px;
+			font-size: 28px;
 		}
 	}
 `;
@@ -169,6 +173,7 @@ export const ServiceCard = styled.div`
 
 		h4 {
 			margin-top: 1rem;
+			font-size: 20px;
 		}
 	}
 `;
@@ -238,5 +243,10 @@ export const ConsulationForm = styled.form`
 
 	@media (max-width: 1300px) {
 		width: 100%;
+	}
+
+	@media (max-width: 600px) {
+		box-shadow: none;
+		padding: 0;
 	}
 `;
