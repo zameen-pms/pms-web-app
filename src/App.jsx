@@ -5,8 +5,11 @@ import ApplicationsHome from "./pages/applications";
 import AuthHome from "./pages/auth";
 import ServicesHome from "./pages/services";
 import HomePage from "./pages/home";
+import usePageTracking from "./features/hooks/usePageTracking";
 
 const App = () => {
+	usePageTracking();
+
 	return (
 		<Routes>
 			{/* public routes */}
