@@ -2,29 +2,134 @@ import styled from "styled-components";
 
 export const StyledPublicHeader = styled.header`
 	width: 100%;
-	height: 100px;
-	padding: 0 2rem;
-	background-color: var(--primary-dark);
+	height: 50px;
+	background: var(--off-white);
 	display: flex;
-	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+	padding: 0 2rem;
+	position: relative;
+
+	.logo {
+		font-weight: 500;
+		font-size: 22px;
+		color: var(--primary);
+	}
+
+	nav {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 24px;
+		background: var(--off-white);
+		transition: all 0.25s ease-in;
+
+		.menu-close {
+			position: fixed;
+			left: 0;
+			top: 0;
+			width: 100vw;
+			height: 50px;
+			display: ${(props) => (props.$open ? "flex" : "none")};
+			flex-direction: row;
+			justify-content: flex-end;
+			align-items: center;
+			padding: 0 2rem;
+		}
+
+		p {
+			color: black;
+			font-weight: 300;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			&:hover {
+				font-weight: 400;
+			}
+
+			&.active {
+				text-decoration: underline;
+				font-weight: 400;
+			}
+
+			svg {
+				display: none;
+				color: var(--gray);
+				width: 1rem;
+				height: 1rem;
+			}
+		}
+
+		.header-button {
+			font-size: 14px;
+			color: white;
+			background: var(--primary);
+			border: none;
+			outline: none;
+			border-radius: 5px;
+			padding: 0.75rem 1.5rem;
+			cursor: pointer;
+			transition: all 0.25s ease-in-out;
+			white-space: nowrap;
+
+			&:hover {
+				box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+				scale: 1.03;
+			}
+		}
+
+		@media (max-width: 900px) {
+			position: fixed;
+			top: 0;
+			left: ${(props) => (props.$open ? "0" : "100vw")};
+			width: 100vw;
+			height: 100vh;
+			z-index: 10;
+			flex-direction: column;
+			align-items: flex-end;
+			padding: calc(50px + 2rem) 2rem 0 2rem;
+
+			p {
+				background: white;
+				border: 1px solid var(--gray);
+				width: 100%;
+				padding: 1rem;
+				border-radius: 5px;
+
+				svg {
+					display: block;
+				}
+			}
+
+			.header-button {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 1rem;
+			}
+		}
+	}
 
 	.menu-icon {
-		display: none;
-		color: white;
-		width: 40px;
-		height: 40px;
+		width: 30px;
+		height: 30px;
+		color: var(--primary);
 		cursor: pointer;
+		display: none;
 
-		@media (max-width: 1080px) {
+		@media (max-width: 900px) {
 			display: block;
 		}
 	}
 `;
 
 export const StyledPublicBody = styled.section`
-	min-height: 100vh;
+	flex-grow: 1;
+	min-height: calc(100vh - 50px);
+	overflow: auto;
 `;
 
 export const StyledPublicLogo = styled.h1`

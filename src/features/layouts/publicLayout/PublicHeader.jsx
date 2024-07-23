@@ -1,37 +1,50 @@
-import { NavLink, useNavigate } from "react-router-dom";
-import {
-	StyledPublicHeader,
-	StyledPublicLogo,
-	StyledPublicNav,
-} from "./PublicLayout.styled";
-import Button from "../../ui/button/Button";
-import { MdClose, MdMenu } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import { StyledPublicHeader } from "./PublicLayout.styled";
+import { MdArrowForwardIos, MdClose, MdMenu } from "react-icons/md";
 import { useState } from "react";
+
+const navItems = [
+	{
+		name: "Properties",
+		to: "/properties",
+	},
+];
 
 const PublicHeader = () => {
 	const navigate = useNavigate();
-	const [navOpen, setNavOpen] = useState(false);
+	const [isNavOpen, setIsNavOpen] = useState(false);
 
-	const toggleNav = () => setNavOpen(!navOpen);
-
-	const redirect = (to) => {
-		setNavOpen(false);
+	const handleNavigate = (to) => {
+		setIsNavOpen(false);
 		navigate(to);
 	};
 
 	return (
-		<StyledPublicHeader>
-			<StyledPublicLogo>
-				<NavLink to="/">Zameen Management</NavLink>
-			</StyledPublicLogo>
-			<StyledPublicNav $open={navOpen}>
-				<MdClose onClick={toggleNav} />
-				<p onClick={() => redirect("/properties")}>Properties</p>
-				{/* <Button onClick={() => redirect("/tenants")}>
-					Tenant Portal
-				</Button> */}
-			</StyledPublicNav>
-			<MdMenu onClick={toggleNav} className="menu-icon" />
+		<StyledPublicHeader $open={isNavOpen}>
+			<Link to="/" className="logo">
+				Zameen Management
+			</Link>
+			<nav>
+				<div className="menu-close">
+					<MdClose
+						className="menu-icon"
+						onClick={() => setIsNavOpen(false)}
+					/>
+				</div>
+				{navItems.map((navItem, index) => (
+					<p key={index} onClick={() => handleNavigate(navItem.to)}>
+						{navItem.name}
+						<MdArrowForwardIos />
+					</p>
+				))}
+				<button
+					onClick={() => handleNavigate("/services")}
+					className="header-button"
+				>
+					Work With Us
+				</button>
+			</nav>
+			<MdMenu className="menu-icon" onClick={() => setIsNavOpen(true)} />
 		</StyledPublicHeader>
 	);
 };

@@ -6,7 +6,7 @@ import PublicFooter from "./PublicFooter";
 const PublicLayout = () => {
 	return (
 		<>
-			{/* <PublicHeader /> */}
+			<PublicHeader />
 			<StyledPublicBody>
 				<Outlet />
 			</StyledPublicBody>

@@ -21,5 +21,6 @@ export const StyledButton = styled.button`
 	&:hover {
 		background: var(--primary);
 		color: white;
+		scale: 1.03;
 	}
 `;
