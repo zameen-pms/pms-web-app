@@ -14,6 +14,10 @@ export const StyledPublicHeader = styled.header`
 		img {
 			height: 50px;
 			width: auto;
+
+			@media (max-width: 800px) {
+				height: 40px;
+			}
 		}
 	}
 
