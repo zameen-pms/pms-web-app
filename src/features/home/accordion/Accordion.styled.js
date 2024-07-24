@@ -11,7 +11,7 @@ export const AccordionSection = styled.section`
 	padding: 1rem;
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: ${(props) => (props.$selected ? "1rem" : "0")};
 	cursor: pointer;
 	transition: all 0.25s ease-in-out;
 

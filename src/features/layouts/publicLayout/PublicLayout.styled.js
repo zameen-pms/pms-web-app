@@ -147,7 +147,7 @@ export const StyledPublicNav = styled.nav`
 	flex-direction: row;
 	align-items: center;
 	gap: 1.5rem;
-	background-color: var(--primary-dark);
+	background-color: var(--dark-gray);
 	transition: all 0.25s ease-in-out;
 
 	p {
@@ -196,7 +196,7 @@ export const StyledPublicNav = styled.nav`
 
 export const StyledPublicFooter = styled.footer`
 	width: 100%;
-	background: var(--primary-dark);
+	background: var(--dark-gray);
 	color: white;
 	padding: 2rem;
 `;

@@ -71,7 +71,7 @@ export const StyledPropertyCard = styled.div`
 			display: flex;
 			align-items: center;
 			gap: 0.25rem;
-			color: var(--text-gray);
+			color: var(--gray);
 
 			svg {
 				width: 20px;

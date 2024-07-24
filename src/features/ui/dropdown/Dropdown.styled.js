@@ -7,7 +7,7 @@ export const StyledDropdown = styled.div`
 	label {
 		font-size: 14px;
 		letter-spacing: 0.2px;
-		color: gray;
+		color: var(--gray);
 
 		span {
 			color: var(--primary);
@@ -19,7 +19,7 @@ export const StyledDropdown = styled.div`
 		font-size: 1rem;
 		font-weight: 300;
 		padding: 0.5rem;
-		border: 1px solid var(--text-gray);
+		border: 1px solid var(--light-gray);
 		border-radius: 4px;
 
 		&:focus,
