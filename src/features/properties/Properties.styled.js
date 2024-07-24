@@ -18,16 +18,13 @@ export const StyledPropertiesCard = styled.div`
 export const StyledPropertyCard = styled.div`
 	display: flex;
 	flex-direction: column;
-	border-radius: 6px;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border-radius: 10px;
 	cursor: pointer;
 	transition: all 0.25s ease-in-out;
 	background-color: white;
 
 	&:hover {
-		box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-			rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-			rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	}
 
 	& img {
@@ -35,8 +32,8 @@ export const StyledPropertyCard = styled.div`
 		height: 300px;
 		object-fit: cover;
 		object-position: center;
-		border-top-left-radius: 6px;
-		border-top-right-radius: 6px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
 	}
 
 	.no-images {
@@ -45,6 +42,8 @@ export const StyledPropertyCard = styled.div`
 		background-image: url("https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
 		background-size: cover;
 		background-position: center;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
 
 		.blur {
 			width: 100%;
@@ -58,6 +57,8 @@ export const StyledPropertyCard = styled.div`
 			font-size: 26px;
 			font-weight: 500;
 			letter-spacing: 0.25px;
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
 		}
 	}
 
@@ -110,11 +111,12 @@ export const StyledPill = styled.p`
 	width: min-content;
 	white-space: nowrap;
 	font-size: 14px;
-	font-weight: 500 !important;
-	letter-spacing: 0.5px;
+	line-height: 14px;
+	font-weight: 400 !important;
 	color: white !important;
-	padding: 3px 6px;
-	border-radius: 4px;
+	padding: 10px;
+	border-radius: 5px;
+	text-transform: uppercase;
 `;
 
 export const StyledPropertyInfo = styled.section`

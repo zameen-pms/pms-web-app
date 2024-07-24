@@ -10,9 +10,15 @@ const PropertiesCard = () => {
 	const fetchProperties = async () => {
 		try {
 			const { data } = await getProperties();
-			setProperties(
-				data.filter((property) => property.availability === "Available")
+
+			const availableProperties = data.filter(
+				(property) => property.availability === "Available"
 			);
+			const occupiedProperties = data.filter(
+				(property) => property.availability === "Occupied"
+			);
+
+			setProperties([...availableProperties, ...occupiedProperties]);
 		} catch (err) {
 			alert("Unable to fetch properties.");
 		}
