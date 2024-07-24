@@ -91,89 +91,26 @@ export const HomeSection = styled.section`
 		font-size: 18px;
 	}
 
-	.center-text {
+	.container {
 		width: 1080px;
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.home-grid {
-		margin: 3rem auto 0 auto;
-		width: 1080px;
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 1rem;
+		gap: 2rem;
 	}
 
 	@media (max-width: 1300px) {
 		padding: 2rem;
 		margin-top: 0;
 
-		.center-text {
+		.container {
 			width: 100%;
-		}
-
-		.home-grid {
-			width: 100%;
-		}
-	}
-
-	@media (max-width: 1080px) {
-		.home-grid {
-			grid-template-columns: 1fr 1fr;
 		}
 	}
 
 	@media (max-width: 800px) {
-		.home-grid {
-			grid-template-columns: 1fr;
-		}
-
 		h2 {
 			font-size: 28px;
-		}
-	}
-`;
-
-export const ServiceCard = styled.div`
-	border: 1px solid lightgray;
-	padding: 15px;
-	border-radius: 10px;
-	background: white;
-
-	svg {
-		width: 35px;
-		height: 35px;
-		padding: 5px;
-		background: #f2f2f4;
-		border-radius: 5px;
-		color: var(--primary);
-	}
-
-	h4 {
-		font-size: 24px;
-		font-weight: 400;
-		margin-top: 3rem;
-	}
-
-	p {
-		font-size: 14px;
-		line-height: 21px;
-		color: var(--gray);
-		margin-top: 1rem;
-	}
-
-	@media (max-width: 800px) {
-		svg {
-			width: 50px;
-			height: 50px;
-		}
-
-		h4 {
-			margin-top: 1rem;
-			font-size: 20px;
 		}
 	}
 `;
