@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledHero = styled.main`
 	width: 100%;
-	height: calc(100vh - 50px);
+	height: calc(100vh - 75px);
 	background: linear-gradient(
 			90deg,
 			rgba(255, 84, 73, 0.9) 0%,

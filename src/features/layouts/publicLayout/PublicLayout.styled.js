@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const StyledPublicHeader = styled.header`
 	width: 100%;
-	height: 50px;
-	background: var(--off-white);
+	height: 75px;
+	background: var(--dark-gray);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -11,9 +11,10 @@ export const StyledPublicHeader = styled.header`
 	position: relative;
 
 	.logo {
-		font-weight: 500;
-		font-size: 22px;
-		color: var(--primary);
+		img {
+			height: 50px;
+			width: auto;
+		}
 	}
 
 	nav {
@@ -21,7 +22,7 @@ export const StyledPublicHeader = styled.header`
 		flex-direction: row;
 		align-items: center;
 		gap: 24px;
-		background: var(--off-white);
+		background: var(--dark-gray);
 		transition: all 0.25s ease-in;
 
 		.menu-close {
@@ -38,7 +39,7 @@ export const StyledPublicHeader = styled.header`
 		}
 
 		p {
-			color: black;
+			color: white;
 			font-weight: 300;
 			cursor: pointer;
 			display: flex;
@@ -46,11 +47,6 @@ export const StyledPublicHeader = styled.header`
 			justify-content: space-between;
 
 			&:hover {
-				font-weight: 400;
-			}
-
-			&.active {
-				text-decoration: underline;
 				font-weight: 400;
 			}
 
@@ -89,10 +85,11 @@ export const StyledPublicHeader = styled.header`
 			z-index: 10;
 			flex-direction: column;
 			align-items: flex-end;
-			padding: calc(50px + 2rem) 2rem 0 2rem;
+			padding: calc(75px + 2rem) 2rem 0 2rem;
 
 			p {
 				background: white;
+				color: black;
 				border: 1px solid var(--gray);
 				width: 100%;
 				padding: 1rem;
@@ -128,7 +125,7 @@ export const StyledPublicHeader = styled.header`
 
 export const StyledPublicBody = styled.section`
 	flex-grow: 1;
-	min-height: calc(100vh - 50px);
+	min-height: calc(100vh - 75px);
 	overflow: auto;
 `;
 

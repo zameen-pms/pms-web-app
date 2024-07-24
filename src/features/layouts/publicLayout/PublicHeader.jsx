@@ -22,7 +22,7 @@ const PublicHeader = () => {
 	return (
 		<StyledPublicHeader $open={isNavOpen}>
 			<Link to="/" className="logo">
-				Zameen Management
+				<img src="/images/web-logo.svg" alt="Zameen Management LLC" />
 			</Link>
 			<nav>
 				<div className="menu-close">
