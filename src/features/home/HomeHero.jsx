@@ -14,12 +14,10 @@ const HomeHero = ({ onClick }) => {
 					Stress-Free Ownership.
 				</h1>
 				<p>
-					At Zameen Management, we handle{" "}
-					<span className="bold underline">every</span> aspect of your
-					property, from rent collection to maintenance, ensuring you
-					enjoy <span className="bold underline">hassle-free</span>{" "}
-					ownership and{" "}
-					<span className="bold underline">optimized earnings</span>.
+					We cater to all levels of property investors, managing every
+					aspect of your property. From property acquisition and lease
+					management to rent collection and maintenance, we handle{" "}
+					<b>everything</b> for you.
 				</p>
 				<Button onClick={onClick} fill style={{ margin: "0 auto" }}>
 					Free Consultation

@@ -110,13 +110,27 @@ export const StyledPill = styled.p`
 	background: ${(props) => props.$color};
 	width: min-content;
 	white-space: nowrap;
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 14px;
 	font-weight: 400 !important;
 	color: white !important;
-	padding: 10px;
+	padding: 2px 8px;
 	border-radius: 5px;
-	text-transform: uppercase;
+`;
+
+export const InfoPill = styled.p`
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	background: gray;
+	width: min-content;
+	white-space: nowrap;
+	font-size: 12px;
+	line-height: 14px;
+	font-weight: 400 !important;
+	color: white !important;
+	padding: 2px 8px;
+	border-radius: 5px;
 `;
 
 export const StyledPropertyInfo = styled.section`

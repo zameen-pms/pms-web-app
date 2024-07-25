@@ -32,6 +32,7 @@ const PropertiesCard = () => {
 
 	return (
 		<StyledPropertiesCard>
+			{properties?.length === 0 && <p>No Properties Available</p>}
 			{properties.map((property) => (
 				<PropertyCard key={property._id} property={property} />
 			))}

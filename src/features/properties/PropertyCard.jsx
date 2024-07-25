@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { StyledPill, StyledPropertyCard } from "./Properties.styled";
+import { InfoPill, StyledPill, StyledPropertyCard } from "./Properties.styled";
 import { useNavigate } from "react-router-dom";
 import { formatNumber, getAddress } from "../utils/utils";
 import { MdBed, MdLocationOn, MdBathtub, MdOpenInFull } from "react-icons/md";
 import { getImageUrl } from "../utils/getImageUrl";
+import { getTextDate } from "../utils/getTextDate";
 
 const PropertyCard = ({ property }) => {
 	const [color, setColor] = useState("");
@@ -13,13 +14,15 @@ const PropertyCard = ({ property }) => {
 		if (property.availability === "Available") {
 			setColor("#27ae60");
 		} else if (property.availability === "Occupied") {
-			setColor("#2980b9");
+			setColor("#e67e22");
 		} else {
 			setColor("#e74c3c");
 		}
 	}, [property]);
 
 	const handleClick = () => navigate(`/properties/${property._id}`);
+
+	if (property.currentLease) console.log(property.currentLease);
 
 	return (
 		<StyledPropertyCard onClick={handleClick}>
@@ -31,6 +34,12 @@ const PropertyCard = ({ property }) => {
 				</div>
 			)}
 			<StyledPill $color={color}>{property.availability}</StyledPill>
+			{property?.currentLease?.endDate && (
+				<InfoPill>
+					Available{" "}
+					{getTextDate(property.currentLease.endDate.split("T")[0])}
+				</InfoPill>
+			)}
 			<div className="card-body">
 				<div className="row align-center justify-sb">
 					<div className="card-address">
