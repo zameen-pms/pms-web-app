@@ -22,8 +22,6 @@ const PropertyCard = ({ property }) => {
 
 	const handleClick = () => navigate(`/properties/${property._id}`);
 
-	if (property.currentLease) console.log(property.currentLease);
-
 	return (
 		<StyledPropertyCard onClick={handleClick}>
 			{property?.images[0]?.key ? (

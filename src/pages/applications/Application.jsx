@@ -15,7 +15,11 @@ import createApplication from "../../features/api/applications/createApplication
 import createUser from "../../features/api/user/createUser";
 import { v4 } from "uuid";
 import getUsers from "../../features/api/user/getUsers";
-import { APPLICATION_MODEL } from "../../constants";
+import { APPLICATION_MODEL, MANAGER_URL, WEBAPP_URL } from "../../constants";
+import { render } from "@react-email/components";
+import ApplicationEmail from "../../../emails/ApplicationEmail";
+import sendEmail from "../../features/api/email/sendEmail";
+import AppSubmissionEmail from "../../../emails/AppSubmissionEmail";
 
 const Application = () => {
 	const { propertyId } = useParams();
@@ -29,7 +33,7 @@ const Application = () => {
 			const { data } = await getPropertyById(propertyId);
 			setProperty(data);
 		} catch (err) {
-			alert("Unable to fetch property. Redirecting...");
+			alert("There was an error. Redirecting...");
 			navigate("/");
 		}
 	};
@@ -40,18 +44,15 @@ const Application = () => {
 		dispatch(setCanEdit(true));
 	}, []);
 
-	const handleSubmit = async () => {
-		if (!confirm("Are you sure you're ready to submit?")) return;
+	const createApplicant = async () => {
 		try {
-			dispatch(setIsLoading(true));
-
 			const { personal } = application;
 			const { email, firstName, lastName } = personal;
 
 			const { data: users } = await getUsers({ email });
-			let user;
+
 			if (users.length === 0) {
-				const { data } = createUser({
+				const { data: user } = await createUser({
 					email,
 					password: v4(),
 					role: "Tenant",
@@ -59,23 +60,93 @@ const Application = () => {
 					lastName,
 					status: "Disabled",
 				});
-				user = data;
-			} else {
-				user = users[0];
+				return user;
 			}
+			return users[0];
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
-			await createApplication({
+	const submitApplication = async (user) => {
+		try {
+			const { data: submittedApplication } = await createApplication({
 				...application,
 				property: propertyId,
 				user: user._id,
 			});
+			return submittedApplication;
+		} catch (err) {
+			alert("We are unable to submit your application at this time.");
+			console.log(err);
+		}
+	};
+
+	const emailManagers = async (user, application) => {
+		try {
+			const { data: users } = await getUsers({ role: "Manager" });
+			const recipients = users.map((user) => user?.email);
+
+			const address = getAddress(property.address);
+			const url = `${MANAGER_URL}/applications/${application._id}`;
+
+			const body = render(
+				<ApplicationEmail
+					address={address}
+					applicant={`${user.firstName} ${user.lastName}`}
+					url={url}
+				/>
+			);
+
+			await sendEmail({
+				subject: `Application: ${address}`,
+				body,
+				recipients,
+			});
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	const emailApplicant = async (user, application) => {
+		try {
+			const { firstName: name, email } = user;
+			const address = getAddress(property.address);
+			const url = `${WEBAPP_URL}/applications/view/${application.token}`;
+
+			const body = render(
+				<AppSubmissionEmail name={name} address={address} url={url} />
+			);
+
+			await sendEmail({
+				subject: `Application for ${address}`,
+				body,
+				recipients: [email],
+			});
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
+	const handleSubmit = async () => {
+		if (!confirm("Are you sure you're ready to submit?")) return;
+		try {
+			dispatch(setIsLoading(true));
+
+			const user = await createApplicant();
+			const submittedApplication = await submitApplication(user);
+			await emailManagers(user, submittedApplication);
+			await emailApplicant(user, submittedApplication);
 
 			alert(
 				"Your application has been submitted! A link to view your application has been sent to your email."
 			);
 			navigate("/applications/pay");
 		} catch (err) {
-			console.log(err.message);
+			console.log(err);
+			alert(
+				"Unable to submit your application at this time. We apologize for the inconvenience."
+			);
 		} finally {
 			dispatch(setIsLoading(false));
 		}

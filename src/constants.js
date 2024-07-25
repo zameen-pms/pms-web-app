@@ -1,6 +1,8 @@
 import { formatDate } from "./features/utils/utils";
 
 export const URL = import.meta.env.VITE_BACKEND_URL;
+export const MANAGER_URL = import.meta.env.VITE_MANAGER_URL;
+export const WEBAPP_URL = import.meta.env.VITE_WEBAPP_URL;
 
 export const ADDRESS_MODEL = {
 	street: "",

@@ -6,6 +6,7 @@ import {
 	getCanEdit,
 	setApplication,
 } from "../../store/applicationSlice";
+import { formatSsn } from "../../utils/formatSsn";
 
 const PersonalInformation = () => {
 	const dispatch = useDispatch();
@@ -76,7 +77,6 @@ const PersonalInformation = () => {
 				/>
 				<Input
 					label="Social Security #"
-					type="number"
 					value={application?.personal?.ssn || ""}
 					onChange={(e) =>
 						dispatch(
@@ -84,7 +84,7 @@ const PersonalInformation = () => {
 								...application,
 								personal: {
 									...application.personal,
-									ssn: e.target.value,
+									ssn: formatSsn(e.target.value),
 								},
 							})
 						)

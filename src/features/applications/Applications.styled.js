@@ -7,6 +7,7 @@ export const StyledApplicationForm = styled.form`
 	display: flex;
 	flex-direction: column;
 	gap: 3rem;
+	background: white;
 `;
 
 export const ApplicationSection = styled.section`
@@ -35,6 +36,10 @@ export const ApplicationDelete = styled.button`
 
 	&:hover {
 		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	}
+
+	p {
+		color: white;
 	}
 `;
 

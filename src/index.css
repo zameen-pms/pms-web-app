@@ -28,6 +28,12 @@ body {
 	background: var(--off-white);
 }
 
+h2,
+h3,
+h4 {
+	font-weight: 400;
+}
+
 a {
 	color: #3498db;
 	text-decoration: none;
